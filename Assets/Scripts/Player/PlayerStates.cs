@@ -67,7 +67,7 @@ public class PlayerStates : MonoBehaviour
         ResizeCollider();
     }
 
-    //Call this method from other scripts to switch state, this override is if we want to force a state
+    //Call this method from other scripts to switch state, this overload is if we want to force a state
     public void SwitchState(PLAYERSTATES state)
     {
         //var rand
@@ -91,6 +91,7 @@ public class PlayerStates : MonoBehaviour
         ResizeCollider();
     }
 
+    //Resizes the collider to match the sprite
     void ResizeCollider()
     {
         playerCollider.offset = new Vector2(0, 0);

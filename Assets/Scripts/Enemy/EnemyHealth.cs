@@ -7,10 +7,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [Header("Health")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int health;
+    
+    private bool isEnraged = false;
 
     private EnemyStates state;
-
-    private bool isEnraged = false;
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +61,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     void Die()
     {
+        //TODO: Expand Death later
         Destroy(gameObject);
     }
 }

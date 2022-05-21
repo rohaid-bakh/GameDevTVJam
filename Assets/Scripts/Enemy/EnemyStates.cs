@@ -60,6 +60,7 @@ public class EnemyStates : MonoBehaviour
         ResizeCollider();
     }
 
+    //Resizes the collider to match the sprite
     void ResizeCollider()
     {
         enemyCollider.offset = new Vector2(0, 0);
