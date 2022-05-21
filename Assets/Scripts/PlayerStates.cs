@@ -31,22 +31,23 @@ public class PlayerStates : MonoBehaviour
         //TODO: Temp inputs for testing, remove later
         if (Input.GetKeyDown(KeyCode.V))
         {
-            SwitchState(PLAYERSTATES.Vampire);
+            CurrentState = PLAYERSTATES.Vampire;
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            SwitchState(PLAYERSTATES.Chicken);
+            CurrentState = PLAYERSTATES.Chicken;
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            SwitchState(PLAYERSTATES.Sheep);
+            CurrentState = PLAYERSTATES.Sheep;
         }
     }
 
     //Call this method from other scripts to switch state
-    public void SwitchState(PLAYERSTATES state)
+    public void SwitchState()
     {
-        CurrentState = state;
+        //var rand
+        CurrentState = (PLAYERSTATES)Random.Range(0, 3);
 
         switch (CurrentState)
         {
@@ -70,7 +71,7 @@ public class PlayerStates : MonoBehaviour
     {
         playerCollider.offset = new Vector2(0, 0);
         playerCollider.size = new Vector3(playerRenderer.bounds.size.x / transform.lossyScale.x,
-                                     playerRenderer.bounds.size.y / transform.lossyScale.y,
-                                     playerRenderer.bounds.size.z / transform.lossyScale.z);
+                                          playerRenderer.bounds.size.y / transform.lossyScale.y,
+                                          playerRenderer.bounds.size.z / transform.lossyScale.z);
     }
 }
