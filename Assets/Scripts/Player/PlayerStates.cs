@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PLAYERSTATES { Vampire, Chicken, Sheep }
+
 public class PlayerStates : MonoBehaviour
 {
-    public enum PLAYERSTATES { Vampire, Chicken, Sheep }
-
     //This is the same as using a private var and public getter but in 1 line.
     [field: Header("State")]
     [field: SerializeField] public PLAYERSTATES CurrentState { get; private set; }

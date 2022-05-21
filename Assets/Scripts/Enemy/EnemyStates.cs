@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ENEMYSTATES { Normal, Enraged}
+
 public class EnemyStates : MonoBehaviour
 {
-    public enum ENEMYSTATES { Normal, Enraged}
+    
     //This is the same as using a private var and public getter but in 1 line.
     [field: Header("State")]
     [field: SerializeField] public ENEMYSTATES CurrentState;
