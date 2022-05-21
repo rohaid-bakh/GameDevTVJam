@@ -17,8 +17,7 @@ public class EnemyStates : MonoBehaviour
     private SpriteRenderer enemyRenderer;
     private BoxCollider2D enemyCollider;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         enemyRenderer = GetComponent<SpriteRenderer>();
         enemyCollider = GetComponent<BoxCollider2D>();

@@ -18,8 +18,7 @@ public class PlayerStates : MonoBehaviour
     private SpriteRenderer playerRenderer;
     private BoxCollider2D playerCollider;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerRenderer = GetComponent<SpriteRenderer>();
         playerCollider = GetComponent<BoxCollider2D>();

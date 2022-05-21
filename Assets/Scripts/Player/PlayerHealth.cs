@@ -13,8 +13,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private PlayerStates state;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         state = GetComponent<PlayerStates>();
 
