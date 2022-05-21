@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    //This is the same as using a private var and public getter but in 1 line.
-    [field: Header("Health")]
+    [Header("Health")]
     [SerializeField] private int maxHealth = 100;
-    [field: SerializeField] public int Health { get; private set; }
+    [SerializeField] private int health;
 
     private EnemyStates state;
 
@@ -18,7 +17,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         state = GetComponent<EnemyStates>();
 
-        Health = maxHealth;
+        health = maxHealth;
     }
 
     void Update()
@@ -35,16 +34,16 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         Debug.Log("Enemy Hit!");
 
-        Health -= damage;
+        health -= damage;
 
-        if (Health <= 0 && isEnraged == false)
+        if (health <= 0 && isEnraged == false)
         {
             Debug.Log("Enemy has become enraged");
 
             Respawn();
         }
 
-        else if (Health <= 0 && isEnraged)
+        else if (health <= 0 && isEnraged)
         {
             Debug.Log("Enemy has died");
 
@@ -56,7 +55,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         //TODO: Expand Respawn later
         state.SwitchState(ENEMYSTATES.Enraged);
-        Health = maxHealth;
+        health = maxHealth;
         isEnraged = true;
     }
 

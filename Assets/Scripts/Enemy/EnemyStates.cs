@@ -5,8 +5,7 @@ using UnityEngine;
 public enum ENEMYSTATES { Normal, Enraged}
 
 public class EnemyStates : MonoBehaviour
-{
-    
+{    
     //This is the same as using a private var and public getter but in 1 line.
     [field: Header("State")]
     [field: SerializeField] public ENEMYSTATES CurrentState;

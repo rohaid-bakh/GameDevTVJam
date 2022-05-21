@@ -31,23 +31,47 @@ public class PlayerStates : MonoBehaviour
         //TODO: Temp inputs for testing, remove later
         if (Input.GetKeyDown(KeyCode.V))
         {
-            CurrentState = PLAYERSTATES.Vampire;
+            SwitchState(PLAYERSTATES.Vampire);
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            CurrentState = PLAYERSTATES.Chicken;
+            SwitchState(PLAYERSTATES.Chicken);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            CurrentState = PLAYERSTATES.Sheep;
+            SwitchState(PLAYERSTATES.Sheep);
         }
     }
 
-    //Call this method from other scripts to switch state
+    //Call this method from other scripts to switch state randomly
     public void SwitchState()
     {
+        //Change to a random state
+        CurrentState = (PLAYERSTATES)Random.Range(0, System.Enum.GetValues(typeof(PLAYERSTATES)).Length);
+
+        switch (CurrentState)
+        {
+            case PLAYERSTATES.Vampire:
+                playerRenderer.sprite = vampireSprite;
+                break;
+            case PLAYERSTATES.Chicken:
+                playerRenderer.sprite = chickenSprite;
+                break;
+            case PLAYERSTATES.Sheep:
+                playerRenderer.sprite = sheepSprite;
+                break;
+            default:
+                break;
+        }
+
+        ResizeCollider();
+    }
+
+    //Call this method from other scripts to switch state, this override is if we want to force a state
+    public void SwitchState(PLAYERSTATES state)
+    {
         //var rand
-        CurrentState = (PLAYERSTATES)Random.Range(0, 3);
+        CurrentState = state;
 
         switch (CurrentState)
         {

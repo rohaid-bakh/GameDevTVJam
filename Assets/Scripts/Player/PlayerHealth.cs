@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    //This is the same as using a private var and public getter but in 1 line.
-    [field: Header("Health")]
+    [Header("Health")]
     [SerializeField] private int maxHealth = 100;
-    [field: SerializeField] public int Health { get; private set; }
+    [SerializeField] private int health;
 
     [Header("Respawn")]
     [SerializeField] private Transform respawnPoint;
@@ -19,7 +18,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         state = GetComponent<PlayerStates>();
 
-        Health = maxHealth;
+        health = maxHealth;
     }
 
     void Update()
@@ -36,9 +35,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         Debug.Log("Player Hit!");
 
-        Health -= damage;
+        health -= damage;
 
-        if (Health <= 0)
+        if (health <= 0)
         {
             Debug.Log("Player has died");
 
@@ -51,6 +50,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         //TODO: Expand Respawn later
         transform.position = respawnPoint.position;
         state.SwitchState();
-        Health = maxHealth;
+        health = maxHealth;
     }
 }
