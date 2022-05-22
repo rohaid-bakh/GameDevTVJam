@@ -38,6 +38,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     //Call this from enemy projectiles OnTriggerEnter by accessing the IDamageable interface
     public void Damage(int damage)
     {
+        if (IsAlive == false)
+        {
+            return;
+        }
+
         Debug.Log("Player Hit!");
 
         health -= damage;
