@@ -17,7 +17,7 @@ public class Shoot : MonoBehaviour
 
     [SerializeField] private bool isPlayer;
 
-    //TODO: Should probably be moved into an enemyController/movement script
+    //TODO: Should be moved into an enemyController/movement script
     private bool facingRight = true;
 
     private PlayerHealth player;
@@ -42,7 +42,7 @@ public class Shoot : MonoBehaviour
 
         if (isPlayer == false)
         {
-            //TODO: Should probably be moved into an enemyController/movement script
+            //TODO: Should be moved into an enemyController/movement script
             float dist = Vector3.Distance(playerTransform.transform.position, transform.position);
 
             if (dist <= detectRadius)
@@ -78,7 +78,7 @@ public class Shoot : MonoBehaviour
         ShootProjectile();
     }
 
-    //TODO: Should probably be moved into an enemyController/movement script
+    //TODO: Should be moved into an enemyController/movement script
     void FlipEnemy()
     {
         facingRight = !facingRight;
