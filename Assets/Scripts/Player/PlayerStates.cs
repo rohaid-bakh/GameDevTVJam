@@ -16,12 +16,12 @@ public class PlayerStates : MonoBehaviour
     [SerializeField] private Sprite sheepSprite;
 
     private SpriteRenderer playerRenderer;
-    private BoxCollider2D playerCollider;
+    private BoxCollider playerCollider;
 
     void Awake()
     {
         playerRenderer = GetComponent<SpriteRenderer>();
-        playerCollider = GetComponent<BoxCollider2D>();
+        playerCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -69,7 +69,6 @@ public class PlayerStates : MonoBehaviour
     //Call this method from other scripts to switch state, this overload is if we want to force a state
     public void SwitchState(PLAYERSTATES state)
     {
-        //var rand
         CurrentState = state;
 
         switch (CurrentState)
@@ -93,7 +92,6 @@ public class PlayerStates : MonoBehaviour
     //Resizes the collider to match the sprite
     void ResizeCollider()
     {
-        playerCollider.offset = new Vector2(0, 0);
         playerCollider.size = new Vector3(playerRenderer.bounds.size.x / transform.lossyScale.x,
                                           playerRenderer.bounds.size.y / transform.lossyScale.y,
                                           playerRenderer.bounds.size.z / transform.lossyScale.z);

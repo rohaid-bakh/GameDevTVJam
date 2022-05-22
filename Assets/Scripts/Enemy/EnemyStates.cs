@@ -15,12 +15,12 @@ public class EnemyStates : MonoBehaviour
     [SerializeField] private Sprite enragedSprite;
 
     private SpriteRenderer enemyRenderer;
-    private BoxCollider2D enemyCollider;
+    private BoxCollider enemyCollider;
 
     void Awake()
     {
         enemyRenderer = GetComponent<SpriteRenderer>();
-        enemyCollider = GetComponent<BoxCollider2D>();
+        enemyCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -62,7 +62,6 @@ public class EnemyStates : MonoBehaviour
     //Resizes the collider to match the sprite
     void ResizeCollider()
     {
-        enemyCollider.offset = new Vector2(0, 0);
         enemyCollider.size = new Vector3(enemyRenderer.bounds.size.x / transform.lossyScale.x,
                                          enemyRenderer.bounds.size.y / transform.lossyScale.y,
                                          enemyRenderer.bounds.size.z / transform.lossyScale.z);

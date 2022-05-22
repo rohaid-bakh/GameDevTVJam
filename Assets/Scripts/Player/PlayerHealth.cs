@@ -10,12 +10,18 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     [Header("Respawn")]
     [SerializeField] private Transform respawnPoint;
+    [SerializeField] private float respawnDelay = 1f;
+
+    //TODO: Can remove from inspector later
+    [field: SerializeField] public bool IsAlive { get; private set; }
 
     private PlayerStates state;
 
     void Awake()
     {
         state = GetComponent<PlayerStates>();
+
+        IsAlive = true;
 
         health = maxHealth;
     }
@@ -39,16 +45,19 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             Debug.Log("Player has died");
+            IsAlive = false;
 
-            Respawn();
+            StartCoroutine(Respawn());
         }
     }
 
-    void Respawn()
+    IEnumerator Respawn()
     {
         //TODO: Expand Respawn later
+        yield return new WaitForSeconds(respawnDelay);
         transform.position = respawnPoint.position;
         state.SwitchState();
         health = maxHealth;
+        IsAlive = true;
     }
 }
