@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
         Shoot otherShoot = other.GetComponent<Shoot>();
 
         //To make sure player or enemy cant hit themselves
-        if (otherShoot.transform == projectileOwner)
+        if (otherShoot.tag == projectileOwner.tag)
         {
             return;
         } 

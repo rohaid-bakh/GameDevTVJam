@@ -7,7 +7,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [Header("Health")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int health;
-    
+
+    [Header("Enrage")]
+    [SerializeField] private bool enemyHasEnrage = false;
     private bool isEnraged = false;
 
     private EnemyStates state;
@@ -35,7 +37,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         health -= damage;
 
-        if (health <= 0 && isEnraged == false)
+        if (health <= 0 && isEnraged == false && enemyHasEnrage)
         {
             Debug.Log("Enemy has become enraged");
 
@@ -43,6 +45,13 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         }
 
         else if (health <= 0 && isEnraged)
+        {
+            Debug.Log("Enemy has died");
+
+            Die();
+        }
+
+        else if (health <= 0 && enemyHasEnrage == false)
         {
             Debug.Log("Enemy has died");
 

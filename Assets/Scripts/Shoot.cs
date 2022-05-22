@@ -10,13 +10,14 @@ public class Shoot : MonoBehaviour
     [field: SerializeField] public int ProjectileDamage = 20;
     [SerializeField] private float fireRate = 0.5f;
     private float nextFire = 0;
+    private float shootTimer = 0;
 
     [Header("AI Shooting")]
     [SerializeField] private float detectRadius = 4f;
     [field: SerializeField] public bool PlayerInRange { get; private set; }
 
     //Is this object the player?
-    [SerializeField] private bool isPlayer = false;
+    [SerializeField] private bool isPlayer = false;   
 
     private PlayerHealth player;
     private EnemyController enemyController;
@@ -35,6 +36,8 @@ public class Shoot : MonoBehaviour
 
     void Update()
     {
+        shootTimer += Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.LeftControl) && isPlayer)
         {
             ShootProjectile();
@@ -84,9 +87,9 @@ public class Shoot : MonoBehaviour
             return;
         }
 
-        if (Time.time > nextFire)
+        if (shootTimer > nextFire)
         {
-            nextFire = Time.time + fireRate;
+            nextFire = shootTimer + fireRate;
 
             GameObject go = Instantiate(projectilePrefab, projectileSpawnPoint.position, transform.rotation);
             go.GetComponent<Projectile>().projectileOwner = transform;
