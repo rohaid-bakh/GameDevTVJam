@@ -10,6 +10,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     [Header("Respawn")]
     [SerializeField] private Transform respawnPoint;
+    [SerializeField] private float respawnDelay = 1f;
+
+    //TODO: Can remove from inspector later
+    [field: SerializeField] public bool IsAlive { get; private set; }
 
     private PlayerStates state;
 
@@ -17,7 +21,17 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         state = GetComponent<PlayerStates>();
 
+        IsAlive = true;
+
         health = maxHealth;
+
+        if (respawnPoint == null)
+        {
+            Debug.LogError("No Respawn Point assigned, setting current position as Respawn Point");
+            respawnPoint = new GameObject().transform;
+            respawnPoint.name = "Player Respawn Point";
+            respawnPoint.position = transform.position;
+        }
     }
 
     void Update()
@@ -32,6 +46,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     //Call this from enemy projectiles OnTriggerEnter by accessing the IDamageable interface
     public void Damage(int damage)
     {
+        if (IsAlive == false)
+        {
+            return;
+        }
+
         Debug.Log("Player Hit!");
 
         health -= damage;
@@ -39,16 +58,19 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             Debug.Log("Player has died");
+            IsAlive = false;
 
-            Respawn();
+            StartCoroutine(Respawn());
         }
     }
 
-    void Respawn()
+    IEnumerator Respawn()
     {
         //TODO: Expand Respawn later
+        yield return new WaitForSeconds(respawnDelay);
         transform.position = respawnPoint.position;
         state.SwitchState();
         health = maxHealth;
+        IsAlive = true;
     }
 }

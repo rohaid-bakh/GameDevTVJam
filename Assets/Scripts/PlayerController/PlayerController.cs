@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
         };
 
         Move();
+        FlipSprite();
      }
 
     private void Gravity(){
@@ -141,5 +142,16 @@ public class PlayerController : MonoBehaviour
             rigid.drag = 0f;
         }
         gravityScale = 0f;
+    }
+
+    //Added flipping sprites x scale
+    void FlipSprite()
+    {
+        bool playerHasHorizontalSpeed = Mathf.Abs(rigid.velocity.x) > Mathf.Epsilon;
+
+        if (playerHasHorizontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(rigid.velocity.x), 1f);
+        }
     }
 }
