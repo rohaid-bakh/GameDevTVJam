@@ -7,6 +7,7 @@ public class Shoot : MonoBehaviour
     [Header("Projectile")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform projectileSpawnPoint;
+    [field: SerializeField] public int ProjectileDamage = 20;
     [SerializeField] private float fireRate = 0.5f;
     private float nextFire = 0;
 

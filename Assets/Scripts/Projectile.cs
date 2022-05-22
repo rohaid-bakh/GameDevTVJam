@@ -5,13 +5,13 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed = 20f;
-    [SerializeField] private int projectileDamage = 20;
     [SerializeField] private float projectileLifetime = 5f;
 
     //This is so the projectile knows if it should spawn on left or right depending on the sprites X scale
     public Transform projectileOwner;
 
     private Rigidbody myRigidbody;
+    private Shoot shoot;
     private float xSpeed;
 
     void Awake()
@@ -21,6 +21,8 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
+        shoot = projectileOwner.GetComponent<Shoot>();
+
         //Spawns on the correct side and sets speed
         xSpeed = projectileOwner.localScale.x * projectileSpeed;
 
@@ -36,17 +38,17 @@ public class Projectile : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
-        Shoot shoot = other.GetComponent<Shoot>();
+        Shoot otherShoot = other.GetComponent<Shoot>();
 
         //To make sure player or enemy cant hit themselves
-        if (shoot.transform == projectileOwner)
+        if (otherShoot.transform == projectileOwner)
         {
             return;
         } 
 
         if (damageable != null)
         {
-            damageable.Damage(projectileDamage);
+            damageable.Damage(shoot.ProjectileDamage);
         }        
         Destroy(gameObject);
     }
