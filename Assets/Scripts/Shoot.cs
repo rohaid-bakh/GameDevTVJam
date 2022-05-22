@@ -16,7 +16,8 @@ public class Shoot : MonoBehaviour
     //TODO: Can be private later
     [SerializeField] private bool playerInRange = false;
 
-    [SerializeField] private bool isPlayer;
+    //Is this object the player?
+    [SerializeField] private bool isPlayer = false;
 
     //TODO: Should be moved into an enemyController/movement script
     private bool facingRight = true;
@@ -104,6 +105,7 @@ public class Shoot : MonoBehaviour
         }
     }
 
+    //Uncomment to test radius 
     void OnDrawGizmos()
     {
         if (isPlayer == false)

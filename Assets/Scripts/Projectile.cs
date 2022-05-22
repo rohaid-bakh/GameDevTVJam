@@ -10,9 +10,10 @@ public class Projectile : MonoBehaviour
     //This is so the projectile knows if it should spawn on left or right depending on the sprites X scale
     public Transform projectileOwner;
 
+    private float xSpeed;
+
     private Rigidbody myRigidbody;
     private Shoot shoot;
-    private float xSpeed;
 
     void Awake()
     {
@@ -50,11 +51,7 @@ public class Projectile : MonoBehaviour
         {
             damageable.Damage(shoot.ProjectileDamage);
         }        
-        Destroy(gameObject);
-    }
 
-    void OnCollisionEnter(Collision other)
-    {
         Destroy(gameObject);
     }
 }
