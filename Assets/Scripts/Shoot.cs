@@ -13,21 +13,19 @@ public class Shoot : MonoBehaviour
 
     [Header("AI Shooting")]
     [SerializeField] private float detectRadius = 4f;
-    //TODO: Can be private later
-    [SerializeField] private bool playerInRange = false;
+    [field: SerializeField] public bool PlayerInRange { get; private set; }
 
     //Is this object the player?
     [SerializeField] private bool isPlayer = false;
 
-    //TODO: Should be moved into an enemyController/movement script
-    private bool facingRight = true;
-
     private PlayerHealth player;
+    private EnemyController enemyController;
     private Transform playerTransform;
 
     void Awake()
     {
         playerTransform = FindObjectOfType<PlayerController>().transform;
+        enemyController = GetComponent<EnemyController>();
 
         if (isPlayer)
         {
@@ -44,16 +42,15 @@ public class Shoot : MonoBehaviour
 
         if (isPlayer == false)
         {
-            //TODO: Should be moved into an enemyController/movement script
             float dist = Vector3.Distance(playerTransform.transform.position, transform.position);
 
             if (dist <= detectRadius)
             {
-                playerInRange = true;
+                PlayerInRange = true;
             }
             else
             {
-                playerInRange = false;
+                PlayerInRange = false;
             }
 
             AttackPlayerInRange();
@@ -63,30 +60,21 @@ public class Shoot : MonoBehaviour
     //Used by AI if isPlayer is false
     void AttackPlayerInRange()
     {
-        if (playerInRange == false)
+        if (PlayerInRange == false)
         {
             return;
         }
 
-        if (playerTransform.transform.position.x < transform.position.x && facingRight)
+        if (playerTransform.transform.position.x < transform.position.x && enemyController.FacingRight)
         {
-            FlipEnemy();        
+            enemyController.FlipEnemy();        
         }
-        else if (playerTransform.transform.position.x > transform.position.x && facingRight == false)
+        else if (playerTransform.transform.position.x > transform.position.x && enemyController.FacingRight == false)
         {
-            FlipEnemy();
+            enemyController.FlipEnemy();
         }
 
         ShootProjectile();
-    }
-
-    //TODO: Should be moved into an enemyController/movement script
-    void FlipEnemy()
-    {
-        facingRight = !facingRight;
-        Vector3 tmpScale = transform.localScale;
-        tmpScale.x *= -1;
-        transform.localScale = tmpScale;
     }
 
     void ShootProjectile()

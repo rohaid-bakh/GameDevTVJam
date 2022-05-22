@@ -289,5 +289,5 @@ MonoBehaviour:
   ProjectileDamage: 20
   fireRate: 0.5
   detectRadius: 4
-  playerInRange: 0
+  <PlayerInRange>k__BackingField: 0
   isPlayer: 1
