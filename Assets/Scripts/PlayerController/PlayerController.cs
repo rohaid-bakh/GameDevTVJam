@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        sprite = transform.Find("Visual").GetComponent<SpriteRenderer>();  //Moved visual to a child object
         cont = new Controller();
         rigid = GetComponent<Rigidbody>();
         rigid.useGravity = false;
@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
         };
 
         Move();
-        // FlipSprite();
+        Flip();
     }
 
     private void Gravity()
@@ -224,15 +224,22 @@ public class PlayerController : MonoBehaviour
         gravityScale = 0f;
     }
 
-    // 
-    // //Added flipping sprites x scale
-    // void FlipSprite()
-    // {
-    //     bool playerHasHorizontalSpeed = Mathf.Abs(rigid.velocity.x) > Mathf.Epsilon;
 
-    //     if (playerHasHorizontalSpeed)
-    //     {
-    //         transform.localScale = new Vector2(Mathf.Sign(rigid.velocity.x), 1f);
-    //     }
-    // }
+    //Added flipping object
+    void Flip()
+    {
+        //bool playerHasHorizontalSpeed = Mathf.Abs(rigid.velocity.x) > Mathf.Epsilon;
+
+        //if (playerHasHorizontalSpeed)
+        //{
+        //    transform.localScale = new Vector2(Mathf.Sign(rigid.velocity.x), 1f);
+        //}
+
+        if (move.x != 0)
+        {
+            Vector3 facing = transform.localEulerAngles;
+            facing.y = move.x > 0 ? 0 : 180;
+            transform.localEulerAngles = facing;
+        }
+    }
 }
