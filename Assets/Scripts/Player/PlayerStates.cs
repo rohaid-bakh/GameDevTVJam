@@ -31,24 +31,6 @@ public class PlayerStates : MonoBehaviour
         controller = GetComponent<PlayerController>();  // Added to change state Automatically
     }
 
-    // Commented out because the game uses the new input system  so these no longer work.
-    // void Update()
-    // {
-
-    //     if (Input.GetKeyDown(KeyCode.V))
-    //     {
-    //         SwitchState(PLAYERSTATES.Vampire);
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.C))
-    //     {
-    //         SwitchState(PLAYERSTATES.Chicken);
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.S))
-    //     {
-    //         SwitchState(PLAYERSTATES.Sheep);
-    //     }
-    // }
-
     //Call this method from other scripts to switch state randomly
     public void SwitchState() 
     {
@@ -118,9 +100,6 @@ public class PlayerStates : MonoBehaviour
 
         ResizeCollider();
     }
-
-    //COMMENTED OUT BECAUSE SIZE CAN BE NEGATIVE DUE TO THE NEGATIVE SCALE
-    //Leading to really weird bugs
 
     //Resizes the collider to match the object
      void ResizeCollider()

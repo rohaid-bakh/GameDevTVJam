@@ -10,8 +10,6 @@ public class Projectile : MonoBehaviour
     //This is so the projectile knows if it should spawn on left or right depending on the sprites X scale
     public Transform projectileOwner;
 
-    private float xSpeed;
-
     private Rigidbody myRigidbody;
     private Shoot shoot;
 

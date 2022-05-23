@@ -21,15 +21,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         health = maxHealth;
     }
 
-    void Update()
-    {
-        //TODO: Temp inputs for testing, remove later
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Damage(20);
-        }
-    }
-
     //Call this from player projectiles OnTriggerEnter by accessing the IDamageable interface
     public void Damage(int damage)
     {

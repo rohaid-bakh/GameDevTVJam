@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
 
     public bool facingRight = true;
-    public bool FacingRight { get { return facingRight; } set { facingRight = value; } }
+    public bool FacingRight { get { return facingRight; } private set { facingRight = value; } }
 
     private Rigidbody myRigidbody;
     private Shoot shoot;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ENEMYSTATES { Normal, Enraged}
+public enum ENEMYSTATES { Normal, Enraged }
 
 public class EnemyStates : MonoBehaviour
 {    

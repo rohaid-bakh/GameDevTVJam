@@ -16,6 +16,7 @@ public class Trap : MonoBehaviour
         {
             damageable.Damage(damage);
 
+            //Pushes player back/opposite of trigger
             if (rb != null)
             {
                 rb.velocity *= -pushForce;

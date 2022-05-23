@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -36,6 +35,15 @@ public class UIManager : MonoBehaviour
     public void SetSFXMasterVolume(float volume)
     {
         audioMixer.SetFloat("SFXVolume", volume);
+    }
+
+    //TODO: Call from player escape input
+    public void PauseGame()
+    {
+        pausePanel.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void ResumeGame()
