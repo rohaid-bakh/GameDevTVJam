@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
         shoot = projectileOwner.GetComponent<Shoot>();
 
         //Spawns on the correct side and sets speed
-        xSpeed = projectileOwner.localScale.x * projectileSpeed;
+        //xSpeed = projectileOwner.localScale.x * projectileSpeed;      //No longer needed
 
         Destroy(gameObject, projectileLifetime);
     }
@@ -33,19 +33,22 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myRigidbody.velocity = new Vector3(xSpeed, 0f, 0f);
+        //Changed to work with the projectilespawnpoints location/side
+        myRigidbody.velocity = transform.right * projectileSpeed;
     }
 
     void OnTriggerEnter(Collider other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
         Shoot otherShoot = other.GetComponent<Shoot>();
-        if(otherShoot!= null){
-        //To make sure player or enemy cant hit themselves
-        if (otherShoot.tag == projectileOwner.tag)
+
+        if (otherShoot != null)
         {
-            return;
-        } 
+            //To make sure player or enemy cant hit themselves
+            if (otherShoot.tag == projectileOwner.tag)
+            {
+                return;
+            } 
         }
 
         if (damageable != null)

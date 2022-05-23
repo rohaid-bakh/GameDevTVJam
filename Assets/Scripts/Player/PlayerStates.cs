@@ -14,13 +14,15 @@ public class PlayerStates : MonoBehaviour
     [SerializeField] private Sprite vampireSprite;
     [SerializeField] private Sprite chickenSprite;
     [SerializeField] private Sprite sheepSprite;
+    [SerializeField] private Sprite catSprite;
 
     private SpriteRenderer playerRenderer;
     private BoxCollider playerCollider;
     // Next 2 Vars were added.
-    // 0 : Vampire , 1: Chicken, 2: Cat, 3: Sheep
+    // 0 : Vampire , 1: Chicken, 2: Sheep, 3: Cat
     [SerializeField] private States[] allStates;
     private PlayerController controller;
+
     void Awake()
     {
         playerRenderer = GetComponent<SpriteRenderer>();
@@ -47,11 +49,12 @@ public class PlayerStates : MonoBehaviour
     // }
 
     //Call this method from other scripts to switch state randomly
-    public void SwitchState() // TODO:  ADD IN CAT
+    public void SwitchState() 
     {
         //Change to a random state
         CurrentState = (PLAYERSTATES)Random.Range(0, System.Enum.GetValues(typeof(PLAYERSTATES)).Length);
         controller.turnOffState(); // turn off current state / controls
+        
         switch (CurrentState)
         {
             case PLAYERSTATES.Vampire:
@@ -67,6 +70,11 @@ public class PlayerStates : MonoBehaviour
             case PLAYERSTATES.Sheep:
                 playerRenderer.sprite = sheepSprite;
                 controller.turnOnState(PLAYERSTATES.Sheep);
+                controller.setState(allStates[2]);
+                break;
+            case PLAYERSTATES.Cat:
+                playerRenderer.sprite = catSprite;
+                controller.turnOnState(PLAYERSTATES.Cat);
                 controller.setState(allStates[3]);
                 break;
             default:
@@ -77,7 +85,7 @@ public class PlayerStates : MonoBehaviour
     }
 
     //Call this method from other scripts to switch state, this overload is if we want to force a state
-    public void SwitchState(PLAYERSTATES state) // TODO:  ADD IN CAT
+    public void SwitchState(PLAYERSTATES state) 
     {
         CurrentState = state;
         controller.turnOffState(); // turn off current state / controls
@@ -96,6 +104,11 @@ public class PlayerStates : MonoBehaviour
             case PLAYERSTATES.Sheep:
                 playerRenderer.sprite = sheepSprite;
                 controller.turnOnState(PLAYERSTATES.Sheep);
+                controller.setState(allStates[2]);
+                break;
+            case PLAYERSTATES.Cat:
+                playerRenderer.sprite = catSprite;
+                controller.turnOnState(PLAYERSTATES.Cat);
                 controller.setState(allStates[3]);
                 break;
             default:
