@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    //TODO: MAKE SCRIPTABLE OBJECT FOR UNIQUE PROJECTILES.
+    // Stuff like fire rate, damage,etc
     [Header("Projectile")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform projectileSpawnPoint;
@@ -38,10 +40,10 @@ public class Shoot : MonoBehaviour
     {
         shootTimer += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && isPlayer)
-        {
-            ShootProjectile();
-        }
+        // if (Input.GetKeyDown(KeyCode.LeftControl) && isPlayer) Removed since the proper input is put in
+        // {
+        //     ShootProjectile();
+        // }
 
         if (isPlayer == false)
         {
@@ -80,7 +82,7 @@ public class Shoot : MonoBehaviour
         ShootProjectile();
     }
 
-    void ShootProjectile()
+    public void ShootProjectile()
     {
         if (isPlayer && player.IsAlive == false)
         {

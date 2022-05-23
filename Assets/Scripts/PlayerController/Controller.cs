@@ -24,7 +24,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     ""name"": ""Controller"",
     ""maps"": [
         {
-            ""name"": ""Human"",
+            ""name"": ""General"",
             ""id"": ""a6c155e0-5b2d-4e2e-b6d1-2497041d5083"",
             ""actions"": [
                 {
@@ -40,15 +40,6 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""79ecf05a-4916-4089-9719-9a50e0059744"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Attack"",
-                    ""type"": ""Button"",
-                    ""id"": ""55bfb49e-e45e-45b0-9c4e-9aef20e896fa"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -121,15 +112,116 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""Vampire"",
+            ""id"": ""755b6d90-4ec6-4d04-ab51-8667f644e64a"",
+            ""actions"": [
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""37fe984a-fdef-49cd-a870-0f90d36ad387"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""df3bc0a1-25ef-4d20-aa2c-9186f2ebdb4e"",
+                    ""id"": ""386c8263-43da-4d41-b644-be20674417e8"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Sheep"",
+            ""id"": ""60dd2900-4de0-42cb-b597-627e9878d88b"",
+            ""actions"": [
+                {
+                    ""name"": ""Eat"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b00da9a-f783-404d-8718-c37f50ef70fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""72c12fd9-dfef-43a5-8ea7-0d9a81461696"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Cat"",
+            ""id"": ""0c98e8c7-28cd-48d2-9563-a11d5f898a5c"",
+            ""actions"": [
+                {
+                    ""name"": ""Scratch"",
+                    ""type"": ""Button"",
+                    ""id"": ""b387eb7f-6a5a-4213-a479-0b4e7cbb8512"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""12ead424-09e6-408a-879d-285a90a9c247"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scratch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Chicken"",
+            ""id"": ""8f8eee1d-f98d-41ca-a98d-b76bec91d98e"",
+            ""actions"": [
+                {
+                    ""name"": ""Fly"",
+                    ""type"": ""Button"",
+                    ""id"": ""532650ef-82e1-4828-93d2-0cc9dcef4669"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4dc3dad3-036a-46ee-8797-d8688267a8a8"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fly"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -150,11 +242,22 @@ public partial class @Controller : IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Human
-        m_Human = asset.FindActionMap("Human", throwIfNotFound: true);
-        m_Human_Movement = m_Human.FindAction("Movement", throwIfNotFound: true);
-        m_Human_Jump = m_Human.FindAction("Jump", throwIfNotFound: true);
-        m_Human_Attack = m_Human.FindAction("Attack", throwIfNotFound: true);
+        // General
+        m_General = asset.FindActionMap("General", throwIfNotFound: true);
+        m_General_Movement = m_General.FindAction("Movement", throwIfNotFound: true);
+        m_General_Jump = m_General.FindAction("Jump", throwIfNotFound: true);
+        // Vampire
+        m_Vampire = asset.FindActionMap("Vampire", throwIfNotFound: true);
+        m_Vampire_Attack = m_Vampire.FindAction("Attack", throwIfNotFound: true);
+        // Sheep
+        m_Sheep = asset.FindActionMap("Sheep", throwIfNotFound: true);
+        m_Sheep_Eat = m_Sheep.FindAction("Eat", throwIfNotFound: true);
+        // Cat
+        m_Cat = asset.FindActionMap("Cat", throwIfNotFound: true);
+        m_Cat_Scratch = m_Cat.FindAction("Scratch", throwIfNotFound: true);
+        // Chicken
+        m_Chicken = asset.FindActionMap("Chicken", throwIfNotFound: true);
+        m_Chicken_Fly = m_Chicken.FindAction("Fly", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -211,39 +314,34 @@ public partial class @Controller : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Human
-    private readonly InputActionMap m_Human;
-    private IHumanActions m_HumanActionsCallbackInterface;
-    private readonly InputAction m_Human_Movement;
-    private readonly InputAction m_Human_Jump;
-    private readonly InputAction m_Human_Attack;
-    public struct HumanActions
+    // General
+    private readonly InputActionMap m_General;
+    private IGeneralActions m_GeneralActionsCallbackInterface;
+    private readonly InputAction m_General_Movement;
+    private readonly InputAction m_General_Jump;
+    public struct GeneralActions
     {
         private @Controller m_Wrapper;
-        public HumanActions(@Controller wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Human_Movement;
-        public InputAction @Jump => m_Wrapper.m_Human_Jump;
-        public InputAction @Attack => m_Wrapper.m_Human_Attack;
-        public InputActionMap Get() { return m_Wrapper.m_Human; }
+        public GeneralActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_General_Movement;
+        public InputAction @Jump => m_Wrapper.m_General_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(HumanActions set) { return set.Get(); }
-        public void SetCallbacks(IHumanActions instance)
+        public static implicit operator InputActionMap(GeneralActions set) { return set.Get(); }
+        public void SetCallbacks(IGeneralActions instance)
         {
-            if (m_Wrapper.m_HumanActionsCallbackInterface != null)
+            if (m_Wrapper.m_GeneralActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_HumanActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_HumanActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_HumanActionsCallbackInterface.OnMovement;
-                @Jump.started -= m_Wrapper.m_HumanActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_HumanActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_HumanActionsCallbackInterface.OnJump;
-                @Attack.started -= m_Wrapper.m_HumanActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_HumanActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_HumanActionsCallbackInterface.OnAttack;
+                @Movement.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnMovement;
+                @Jump.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
             }
-            m_Wrapper.m_HumanActionsCallbackInterface = instance;
+            m_Wrapper.m_GeneralActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Movement.started += instance.OnMovement;
@@ -252,13 +350,142 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+            }
+        }
+    }
+    public GeneralActions @General => new GeneralActions(this);
+
+    // Vampire
+    private readonly InputActionMap m_Vampire;
+    private IVampireActions m_VampireActionsCallbackInterface;
+    private readonly InputAction m_Vampire_Attack;
+    public struct VampireActions
+    {
+        private @Controller m_Wrapper;
+        public VampireActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Attack => m_Wrapper.m_Vampire_Attack;
+        public InputActionMap Get() { return m_Wrapper.m_Vampire; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(VampireActions set) { return set.Get(); }
+        public void SetCallbacks(IVampireActions instance)
+        {
+            if (m_Wrapper.m_VampireActionsCallbackInterface != null)
+            {
+                @Attack.started -= m_Wrapper.m_VampireActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_VampireActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_VampireActionsCallbackInterface.OnAttack;
+            }
+            m_Wrapper.m_VampireActionsCallbackInterface = instance;
+            if (instance != null)
+            {
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
             }
         }
     }
-    public HumanActions @Human => new HumanActions(this);
+    public VampireActions @Vampire => new VampireActions(this);
+
+    // Sheep
+    private readonly InputActionMap m_Sheep;
+    private ISheepActions m_SheepActionsCallbackInterface;
+    private readonly InputAction m_Sheep_Eat;
+    public struct SheepActions
+    {
+        private @Controller m_Wrapper;
+        public SheepActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Eat => m_Wrapper.m_Sheep_Eat;
+        public InputActionMap Get() { return m_Wrapper.m_Sheep; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SheepActions set) { return set.Get(); }
+        public void SetCallbacks(ISheepActions instance)
+        {
+            if (m_Wrapper.m_SheepActionsCallbackInterface != null)
+            {
+                @Eat.started -= m_Wrapper.m_SheepActionsCallbackInterface.OnEat;
+                @Eat.performed -= m_Wrapper.m_SheepActionsCallbackInterface.OnEat;
+                @Eat.canceled -= m_Wrapper.m_SheepActionsCallbackInterface.OnEat;
+            }
+            m_Wrapper.m_SheepActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Eat.started += instance.OnEat;
+                @Eat.performed += instance.OnEat;
+                @Eat.canceled += instance.OnEat;
+            }
+        }
+    }
+    public SheepActions @Sheep => new SheepActions(this);
+
+    // Cat
+    private readonly InputActionMap m_Cat;
+    private ICatActions m_CatActionsCallbackInterface;
+    private readonly InputAction m_Cat_Scratch;
+    public struct CatActions
+    {
+        private @Controller m_Wrapper;
+        public CatActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Scratch => m_Wrapper.m_Cat_Scratch;
+        public InputActionMap Get() { return m_Wrapper.m_Cat; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CatActions set) { return set.Get(); }
+        public void SetCallbacks(ICatActions instance)
+        {
+            if (m_Wrapper.m_CatActionsCallbackInterface != null)
+            {
+                @Scratch.started -= m_Wrapper.m_CatActionsCallbackInterface.OnScratch;
+                @Scratch.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnScratch;
+                @Scratch.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnScratch;
+            }
+            m_Wrapper.m_CatActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Scratch.started += instance.OnScratch;
+                @Scratch.performed += instance.OnScratch;
+                @Scratch.canceled += instance.OnScratch;
+            }
+        }
+    }
+    public CatActions @Cat => new CatActions(this);
+
+    // Chicken
+    private readonly InputActionMap m_Chicken;
+    private IChickenActions m_ChickenActionsCallbackInterface;
+    private readonly InputAction m_Chicken_Fly;
+    public struct ChickenActions
+    {
+        private @Controller m_Wrapper;
+        public ChickenActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Fly => m_Wrapper.m_Chicken_Fly;
+        public InputActionMap Get() { return m_Wrapper.m_Chicken; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ChickenActions set) { return set.Get(); }
+        public void SetCallbacks(IChickenActions instance)
+        {
+            if (m_Wrapper.m_ChickenActionsCallbackInterface != null)
+            {
+                @Fly.started -= m_Wrapper.m_ChickenActionsCallbackInterface.OnFly;
+                @Fly.performed -= m_Wrapper.m_ChickenActionsCallbackInterface.OnFly;
+                @Fly.canceled -= m_Wrapper.m_ChickenActionsCallbackInterface.OnFly;
+            }
+            m_Wrapper.m_ChickenActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Fly.started += instance.OnFly;
+                @Fly.performed += instance.OnFly;
+                @Fly.canceled += instance.OnFly;
+            }
+        }
+    }
+    public ChickenActions @Chicken => new ChickenActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -268,10 +495,25 @@ public partial class @Controller : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
-    public interface IHumanActions
+    public interface IGeneralActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IVampireActions
+    {
         void OnAttack(InputAction.CallbackContext context);
+    }
+    public interface ISheepActions
+    {
+        void OnEat(InputAction.CallbackContext context);
+    }
+    public interface ICatActions
+    {
+        void OnScratch(InputAction.CallbackContext context);
+    }
+    public interface IChickenActions
+    {
+        void OnFly(InputAction.CallbackContext context);
     }
 }
