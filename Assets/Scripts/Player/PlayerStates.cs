@@ -16,16 +16,17 @@ public class PlayerStates : MonoBehaviour
     [SerializeField] private Sprite sheepSprite;
     [SerializeField] private Sprite catSprite;
 
-    private SpriteRenderer playerRenderer;
-    private BoxCollider playerCollider;
     // Next 2 Vars were added.
     // 0 : Vampire , 1: Chicken, 2: Sheep, 3: Cat
     [SerializeField] private States[] allStates;
+    
     private PlayerController controller;
+    private SpriteRenderer playerRenderer;
+    private BoxCollider playerCollider;
 
     void Awake()
     {
-        playerRenderer = GetComponent<SpriteRenderer>();
+        playerRenderer = transform.Find("Visual").GetComponent<SpriteRenderer>();
         playerCollider = GetComponent<BoxCollider>();
         controller = GetComponent<PlayerController>();  // Added to change state Automatically
     }
@@ -81,7 +82,7 @@ public class PlayerStates : MonoBehaviour
                 break;
         }
 
-        // ResizeCollider();
+        ResizeCollider();
     }
 
     //Call this method from other scripts to switch state, this overload is if we want to force a state
@@ -115,17 +116,17 @@ public class PlayerStates : MonoBehaviour
                 break;
         }
 
-        // ResizeCollider();
+        ResizeCollider();
     }
 
     //COMMENTED OUT BECAUSE SIZE CAN BE NEGATIVE DUE TO THE NEGATIVE SCALE
     //Leading to really weird bugs
 
-    //Resizes the collider to match the sprite
-    // void ResizeCollider()
-    // {
-    //     playerCollider.size = new Vector3(playerRenderer.bounds.size.x / transform.lossyScale.x,
-    //                                       playerRenderer.bounds.size.y / transform.lossyScale.y,
-    //                                       playerRenderer.bounds.size.z / transform.lossyScale.z);
-    // }
+    //Resizes the collider to match the object
+     void ResizeCollider()
+    {
+        playerCollider.size = new Vector3(playerRenderer.bounds.size.x / transform.lossyScale.x,
+                                          playerRenderer.bounds.size.y / transform.lossyScale.y,
+                                          playerRenderer.bounds.size.z / transform.lossyScale.z);
+    }
 }

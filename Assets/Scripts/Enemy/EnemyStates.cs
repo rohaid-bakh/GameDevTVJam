@@ -19,22 +19,8 @@ public class EnemyStates : MonoBehaviour
 
     void Awake()
     {
-        enemyRenderer = GetComponent<SpriteRenderer>();
+        enemyRenderer = transform.Find("Visual").GetComponent<SpriteRenderer>();
         enemyCollider = GetComponent<BoxCollider>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //TODO: Temp inputs for testing, remove later
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            SwitchState(ENEMYSTATES.Normal);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            SwitchState(ENEMYSTATES.Enraged);
-        }
     }
 
     //Call this method from other scripts to switch state

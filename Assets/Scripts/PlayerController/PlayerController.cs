@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        sprite = transform.Find("Visual").GetComponent<SpriteRenderer>();  //Moved visual to a child object
         cont = new Controller();
         rigid = GetComponent<Rigidbody>();
         rigid.useGravity = false;
