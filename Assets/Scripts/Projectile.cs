@@ -40,12 +40,13 @@ public class Projectile : MonoBehaviour
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
         Shoot otherShoot = other.GetComponent<Shoot>();
-
+        if(otherShoot!= null){
         //To make sure player or enemy cant hit themselves
         if (otherShoot.tag == projectileOwner.tag)
         {
             return;
         } 
+        }
 
         if (damageable != null)
         {

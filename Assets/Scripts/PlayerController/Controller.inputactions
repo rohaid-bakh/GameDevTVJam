@@ -2,7 +2,7 @@
     "name": "Controller",
     "maps": [
         {
-            "name": "Human",
+            "name": "General",
             "id": "a6c155e0-5b2d-4e2e-b6d1-2497041d5083",
             "actions": [
                 {
@@ -18,15 +18,6 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "79ecf05a-4916-4089-9719-9a50e0059744",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Attack",
-                    "type": "Button",
-                    "id": "55bfb49e-e45e-45b0-9c4e-9aef20e896fa",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -99,15 +90,116 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "Vampire",
+            "id": "755b6d90-4ec6-4d04-ab51-8667f644e64a",
+            "actions": [
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "37fe984a-fdef-49cd-a870-0f90d36ad387",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "df3bc0a1-25ef-4d20-aa2c-9186f2ebdb4e",
+                    "id": "386c8263-43da-4d41-b644-be20674417e8",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Sheep",
+            "id": "60dd2900-4de0-42cb-b597-627e9878d88b",
+            "actions": [
+                {
+                    "name": "Eat",
+                    "type": "Button",
+                    "id": "7b00da9a-f783-404d-8718-c37f50ef70fe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "72c12fd9-dfef-43a5-8ea7-0d9a81461696",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Cat",
+            "id": "0c98e8c7-28cd-48d2-9563-a11d5f898a5c",
+            "actions": [
+                {
+                    "name": "Scratch",
+                    "type": "Button",
+                    "id": "b387eb7f-6a5a-4213-a479-0b4e7cbb8512",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "12ead424-09e6-408a-879d-285a90a9c247",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scratch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Chicken",
+            "id": "8f8eee1d-f98d-41ca-a98d-b76bec91d98e",
+            "actions": [
+                {
+                    "name": "Fly",
+                    "type": "Button",
+                    "id": "532650ef-82e1-4828-93d2-0cc9dcef4669",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4dc3dad3-036a-46ee-8797-d8688267a8a8",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fly",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
