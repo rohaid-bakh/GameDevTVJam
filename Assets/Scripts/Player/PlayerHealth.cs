@@ -99,6 +99,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         transform.position = respawnPoint.position;
         state.SwitchState();
         health = maxHealth;
+        updateUIbar();
         IsAlive = true;
     }
 }

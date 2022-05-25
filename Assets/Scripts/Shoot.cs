@@ -24,11 +24,13 @@ public class Shoot : MonoBehaviour
     private PlayerHealth player;
     private EnemyController enemyController;
     private Transform playerTransform;
+    private Animator animator;
 
     void Awake()
     {
         playerTransform = FindObjectOfType<PlayerController>().transform;
         enemyController = GetComponent<EnemyController>();
+        animator = GetComponentInChildren<Animator>();    
 
         if (isPlayer)
         {
@@ -39,11 +41,6 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         shootTimer += Time.deltaTime;
-
-        // if (Input.GetKeyDown(KeyCode.LeftControl) && isPlayer) Removed since the proper input is put in
-        // {
-        //     ShootProjectile();
-        // }
 
         if (isPlayer == false)
         {
@@ -95,6 +92,11 @@ public class Shoot : MonoBehaviour
 
             GameObject go = Instantiate(projectilePrefab, projectileSpawnPoint.position, transform.rotation);
             go.GetComponent<Projectile>().projectileOwner = transform;
+
+            if (animator != null)
+            {
+                animator.SetTrigger("attack");
+            }
         }
     }
 

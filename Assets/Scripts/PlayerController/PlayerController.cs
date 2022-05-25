@@ -41,9 +41,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private States state;
 
+    //Added animator variable
+    [Header("Animator")]
+    private Animator animator;
+
     private void Awake()
     {
         sprite = transform.Find("Visual").GetComponent<SpriteRenderer>();  //Moved visual to a child object
+        animator = GetComponentInChildren<Animator>();
+
         cont = new Controller();
         rigid = GetComponent<Rigidbody>();
         rigid.useGravity = false;
@@ -177,6 +183,19 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 force = new Vector3(move.x * state.speed, 0f, 0f);
         rigid.AddForce(force);
+
+        //Run Animation
+        if (animator != null)
+        {
+            if (move.x != 0)
+            {
+                animator.SetBool("isRunning", true);
+            }
+            else
+            {
+                animator.SetBool("isRunning", false);
+            }
+        }
     }
 
     private void Jump()
