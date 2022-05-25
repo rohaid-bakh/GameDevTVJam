@@ -21,6 +21,7 @@ public class PlayerStates : MonoBehaviour
     [SerializeField] private States[] allStates;
     
     private PlayerController controller;
+    private Animator animator;
     private SpriteRenderer playerRenderer;
     private BoxCollider playerCollider;
 
@@ -29,6 +30,15 @@ public class PlayerStates : MonoBehaviour
         playerRenderer = transform.Find("Visual").GetComponent<SpriteRenderer>();
         playerCollider = GetComponent<BoxCollider>();
         controller = GetComponent<PlayerController>();  // Added to change state Automatically
+        animator = GetComponentInChildren<Animator>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SwitchState(PLAYERSTATES.Cat);
+        }
     }
 
     //Call this method from other scripts to switch state randomly
@@ -42,21 +52,41 @@ public class PlayerStates : MonoBehaviour
         {
             case PLAYERSTATES.Vampire:
                 playerRenderer.sprite = vampireSprite;
+
+                if (animator != null)
+                {
+                    animator.SetTrigger("changeToVampire");
+                }
                 controller.turnOnState(PLAYERSTATES.Vampire);
                 controller.setState(allStates[0]);
                 break;
             case PLAYERSTATES.Chicken:
                 playerRenderer.sprite = chickenSprite;
+
+                if (animator != null)
+                {
+                    //animator.SetTrigger("changeToChicken");
+                }
                 controller.turnOnState(PLAYERSTATES.Chicken);
                 controller.setState(allStates[1]);
                 break;
             case PLAYERSTATES.Sheep:
                 playerRenderer.sprite = sheepSprite;
+
+                if (animator != null)
+                {
+                    //animator.SetTrigger("changeToSheep");
+                }
                 controller.turnOnState(PLAYERSTATES.Sheep);
                 controller.setState(allStates[2]);
                 break;
             case PLAYERSTATES.Cat:
                 playerRenderer.sprite = catSprite;
+
+                if (animator != null)
+                {
+                    animator.SetTrigger("changeToCat");
+                }
                 controller.turnOnState(PLAYERSTATES.Cat);
                 controller.setState(allStates[3]);
                 break;
@@ -72,25 +102,46 @@ public class PlayerStates : MonoBehaviour
     {
         CurrentState = state;
         controller.turnOffState(); // turn off current state / controls
+
         switch (CurrentState)
         {
             case PLAYERSTATES.Vampire:
                 playerRenderer.sprite = vampireSprite;
+
+                if (animator != null)
+                {
+                    animator.SetTrigger("changeToVampire");
+                }
                 controller.turnOnState(PLAYERSTATES.Vampire);
                 controller.setState(allStates[0]);
                 break;
             case PLAYERSTATES.Chicken:
                 playerRenderer.sprite = chickenSprite;
+
+                if (animator != null)
+                {
+                    //animator.SetTrigger("changeToChicken");
+                }
                 controller.turnOnState(PLAYERSTATES.Chicken);
                 controller.setState(allStates[1]);
                 break;
             case PLAYERSTATES.Sheep:
                 playerRenderer.sprite = sheepSprite;
+
+                if (animator != null)
+                {
+                    //animator.SetTrigger("changeToSheep");
+                }
                 controller.turnOnState(PLAYERSTATES.Sheep);
                 controller.setState(allStates[2]);
                 break;
             case PLAYERSTATES.Cat:
                 playerRenderer.sprite = catSprite;
+
+                if (animator != null)
+                {
+                    animator.SetTrigger("changeToCat");
+                }
                 controller.turnOnState(PLAYERSTATES.Cat);
                 controller.setState(allStates[3]);
                 break;
