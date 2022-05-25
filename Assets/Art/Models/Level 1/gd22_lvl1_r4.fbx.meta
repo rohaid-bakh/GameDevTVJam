@@ -1,0 +1,315 @@
+fileFormatVersion: 2
+guid: 2b9f41f8791858549aad2626f7dd7b2f
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Tiles_Plain2_1K_albedo
+    second: {fileID: 2800000, guid: 20a99ee899b936f458caf642e14c6b4b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Tiles_Plain2_1K_normal
+    second: {fileID: 2800000, guid: 65c146375a45f6647b434ed14db60bd0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wall_CobblestoneMixed5_1.9x2.2_1K_albedo
+    second: {fileID: 2800000, guid: f0de10018ab85a8438de2a7b6c31f50b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wall_CobblestoneMixed5_1.9x2.2_1K_normal
+    second: {fileID: 2800000, guid: 7c8b2cc023e43344c878ccfbc67bba1e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wall_CobblestoneMixed5_1.9x2.2_1K_roughness
+    second: {fileID: 2800000, guid: 9713cc82f359d994b9a84b81c40caf68, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wall_ConcreteBase_2.5x2.5_1K_albedo
+    second: {fileID: 2800000, guid: 711aa3793552d094cb4016dae1735d75, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wall_ConcreteBase_2.5x2.5_1K_normal
+    second: {fileID: 2800000, guid: 6761bb1522913bc43ae7e091fc592211, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wall_ConcreteBase_2.5x2.5_1K_roughness
+    second: {fileID: 2800000, guid: 702b85855cb111e4983e75b24bc72e7e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wood_Aged_1K_albedo
+    second: {fileID: 2800000, guid: d06075217b34960478bdb1d5367bf622, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wood_Aged_1K_albedo-2
+    second: {fileID: 2800000, guid: 0fe344a84dee06c4ebb3a90c5ba986b1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wood_Aged_1K_albedo-3
+    second: {fileID: 2800000, guid: 897540b3fe06d5043ab9e885d71f1ea7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wood_Aged_1K_normal
+    second: {fileID: 2800000, guid: 15634af465770a64eb81e87961464f78, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wood_Aged_1K_roughness
+    second: {fileID: 2800000, guid: 2d17d5bb7963e0c42815b9cd04c6f4f7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wood_Worn3_512_albedo
+    second: {fileID: 2800000, guid: f68c42fb53164244a94ced813352be83, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wood_Worn3_512_normal
+    second: {fileID: 2800000, guid: f13c024cd8e770040983c3cb4f705946, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Wood_Worn3_512_roughness
+    second: {fileID: 2800000, guid: 26a7bfcfeb6a75a478c88b77554fb428, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: blood1
+    second: {fileID: 2800000, guid: 4db815299bfb9d044b27a00b88222697, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: blood2
+    second: {fileID: 2800000, guid: 957c47e1fe48ceb489b8bc097691aa51, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: blood3
+    second: {fileID: 2800000, guid: a2851dd98e1fdf541aa5a88d3a61d8ee, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: blood4
+    second: {fileID: 2800000, guid: 0a2d7066abede3c409f00d770218832d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: dark_rough_rock1_Roughness
+    second: {fileID: 2800000, guid: a507b69ffa126ec47a6c3e9871e542e9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: dark_rough_rock1_diffuse
+    second: {fileID: 2800000, guid: c3263fe77ff512748aaf296bf5350aed, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: dark_rough_rock1_diffuse_l1
+    second: {fileID: 2800000, guid: 565528c999674664e8bf0e870cbae4b1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: dark_rough_rock1_diffuse_l2
+    second: {fileID: 2800000, guid: 8335d27253c34f34c8aa7cbce038c50e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: dark_rough_rock1_diffuse_l3
+    second: {fileID: 2800000, guid: 1ad997ed1c23e174bb6b4eb8956d2e21, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: defense_wall_diff_1k
+    second: {fileID: 2800000, guid: 77bc071a49f8d5e4ea3a19a92966177b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: defense_wall_nor_gl_1k
+    second: {fileID: 2800000, guid: 067f44e531f9698449362ecd97acbf09, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: defense_wall_rough_1k
+    second: {fileID: 2800000, guid: 640b1a77636b4254da1df80acd63fe99, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fine_grained_wood_col_2k
+    second: {fileID: 2800000, guid: 6f59fd9270023564aaeaefc1ed88968d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fine_grained_wood_nor_gl_2k
+    second: {fileID: 2800000, guid: 926fc6076d303254a89671896ae8e5da, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fine_grained_wood_rough_2k
+    second: {fileID: 2800000, guid: 08850e0edd7fc2f4bad830e10bae701a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: grand_window_kitty
+    second: {fileID: 2800000, guid: cadb0c9baed5dd445a2019059195e596, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: kitchen_wood_diff_1k
+    second: {fileID: 2800000, guid: 42f61da4d41e1d247b0738793e427cb6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: kitchen_wood_nor_gl_1k
+    second: {fileID: 2800000, guid: 6cfbc89f9cd1e704cbf4e100a65c98d4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: kitchen_wood_rough_1k
+    second: {fileID: 2800000, guid: 7b0ff16cf9c99f54b8599cdeea26d3e2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medieval_blocks_05_diff_2k
+    second: {fileID: 2800000, guid: 2d018b4cf16f6a54394ed68e05946453, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medieval_blocks_05_nor_gl_2k
+    second: {fileID: 2800000, guid: b467cf615b6d2f245b44ca5589375f36, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: medieval_blocks_05_rough_2k
+    second: {fileID: 2800000, guid: eb6d958d086067a478fba699370ee646, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pixa_window1
+    second: {fileID: 2800000, guid: dda0152fc32318d44a2d668161a0c4e0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_table_001_diff_1k
+    second: {fileID: 2800000, guid: d6be297f62baa234184dbe69bd1c7814, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_table_001_nor_gl_1k
+    second: {fileID: 2800000, guid: 7bad8bb50b442274cb0a964fa1688307, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_table_001_rough_1k
+    second: {fileID: 2800000, guid: 5ca6f064ae443a84ab81fbca77384918, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
