@@ -37,7 +37,7 @@ public class PlayerStates : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SwitchState(PLAYERSTATES.Cat);
+            SwitchState(PLAYERSTATES.Chicken);
         }
     }
 
@@ -65,7 +65,7 @@ public class PlayerStates : MonoBehaviour
 
                 if (animator != null)
                 {
-                    //animator.SetTrigger("changeToChicken");
+                    animator.SetTrigger("changeToChicken");
                 }
                 controller.turnOnState(PLAYERSTATES.Chicken);
                 controller.setState(allStates[1]);
@@ -120,7 +120,7 @@ public class PlayerStates : MonoBehaviour
 
                 if (animator != null)
                 {
-                    //animator.SetTrigger("changeToChicken");
+                    animator.SetTrigger("changeToChicken");
                 }
                 controller.turnOnState(PLAYERSTATES.Chicken);
                 controller.setState(allStates[1]);
