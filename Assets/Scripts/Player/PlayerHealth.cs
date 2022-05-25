@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         if (respawnPoint == null)
         {
-            Debug.LogError("No Respawn Point assigned, setting current position as Respawn Point");
+            //Debug.LogError("No Respawn Point assigned, setting current position as Respawn Point");
             respawnPoint = new GameObject().transform;
             respawnPoint.name = "Player Respawn Point";
             respawnPoint.position = transform.position;
