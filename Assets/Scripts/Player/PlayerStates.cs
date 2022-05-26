@@ -37,7 +37,7 @@ public class PlayerStates : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SwitchState(PLAYERSTATES.Chicken);
+            SwitchState(PLAYERSTATES.Sheep);
         }
     }
 
