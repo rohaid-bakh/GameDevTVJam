@@ -10,38 +10,31 @@ public class Door : MonoBehaviour
     private Transform pairDoor;
     private Door pairDoorScript;
     private bool canTeleport = true;
+    private bool pressed = false;
     private Controller cont; //  have it so if the player presses down and they're in the trigger, they go in.
 
-    void Awake(){
-        cont = new Controller();
-        cont.Enable();
-        cont.General.Enable();
-        cont.General.Door.Enable();
-        pairDoorScript = pairDoor.GetComponent<Door>();
-    }
 
-    void OnEnable(){
-        cont.Enable();
-        cont.General.Enable();
-        cont.General.Door.Enable();
-    }
+    // void OnTriggerEnter(Collider other) {
+    //     Debug.Log("Trigger");
+    //     if (other.tag == "Player" && pressed){ // Should only run when the player is in front 
+    //     Debug.Log("At door");
+    //     if(canTeleport){
+    //         Vector3 newPosition = new Vector3(pairDoor.position.x , pairDoor.position.y , other.transform.position.z);
+    //         other.GetComponent<Rigidbody>().position = newPosition;
+    //         StartCoroutine(pairDoorScript.DoorWait());
+            
+    //     }
+    //     }
+    // }
 
-    void OnDisable(){
-        cont.General.Door.Disable();
-        cont.General.Disable();
-    }
-
-    void OnTriggerEnter(Collider other) {
-        if (other.tag == "Player" && cont.General.Door.IsPressed()){ // Should only run when the player is in front 
+    public void Teleport(GameObject other){
         if(canTeleport){
             Vector3 newPosition = new Vector3(pairDoor.position.x , pairDoor.position.y , other.transform.position.z);
             other.GetComponent<Rigidbody>().position = newPosition;
             StartCoroutine(pairDoorScript.DoorWait());
             
         }
-        }
     }
-
     public IEnumerator DoorWait(){
         canTeleport = false;
         yield return new WaitForSeconds(.2f);

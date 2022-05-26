@@ -45,7 +45,10 @@ public class PlayerStates : MonoBehaviour
     public void SwitchState() 
     {
         //Change to a random state
+        PLAYERSTATES prevState = CurrentState;
+        while(CurrentState == prevState){ // make sure to change the state randomly
         CurrentState = (PLAYERSTATES)Random.Range(0, System.Enum.GetValues(typeof(PLAYERSTATES)).Length);
+        }
         controller.turnOffState(); // turn off current state / controls
         
         switch (CurrentState)
@@ -57,6 +60,8 @@ public class PlayerStates : MonoBehaviour
                 {
                     animator.SetTrigger("changeToVampire");
                 }
+                playerCollider.center = new Vector3(-0.0007758141f,-0.01304388f, 0f );
+                playerCollider.size = new Vector3(1.001552f,1.917335f, 0.2f);
                 controller.turnOnState(PLAYERSTATES.Vampire);
                 controller.setState(allStates[0]);
                 break;
@@ -67,6 +72,8 @@ public class PlayerStates : MonoBehaviour
                 {
                     animator.SetTrigger("changeToChicken");
                 }
+                playerCollider.center = new Vector3(0.03322887f,0.02542782f, 0f );
+                playerCollider.size = new Vector3(1.066458f,0.9028816f, 0.2f);
                 controller.turnOnState(PLAYERSTATES.Chicken);
                 controller.setState(allStates[1]);
                 break;
@@ -75,8 +82,10 @@ public class PlayerStates : MonoBehaviour
 
                 if (animator != null)
                 {
-                    //animator.SetTrigger("changeToSheep");
+                    animator.SetTrigger("changeToSheep");
                 }
+                playerCollider.center = new Vector3(-0.0007758141f,-0.01675606f, 0f );
+                playerCollider.size = new Vector3(1.001552f,0.9812298f, 0.2f);
                 controller.turnOnState(PLAYERSTATES.Sheep);
                 controller.setState(allStates[2]);
                 break;
@@ -87,6 +96,8 @@ public class PlayerStates : MonoBehaviour
                 {
                     animator.SetTrigger("changeToCat");
                 }
+                playerCollider.center = new Vector3(-0.03850317f,-0.01675606f, 0f );
+                playerCollider.size = new Vector3(1.077006f,0.9812298f, 0.2f);
                 controller.turnOnState(PLAYERSTATES.Cat);
                 controller.setState(allStates[3]);
                 break;
@@ -94,7 +105,7 @@ public class PlayerStates : MonoBehaviour
                 break;
         }
 
-        ResizeCollider();
+        // ResizeCollider();
     }
 
     //Call this method from other scripts to switch state, this overload is if we want to force a state
@@ -112,6 +123,8 @@ public class PlayerStates : MonoBehaviour
                 {
                     animator.SetTrigger("changeToVampire");
                 }
+                playerCollider.center = new Vector3(-0.0007758141f,-0.01304388f, 0f );
+                playerCollider.size = new Vector3(1.001552f,1.917335f, 0.2f);
                 controller.turnOnState(PLAYERSTATES.Vampire);
                 controller.setState(allStates[0]);
                 break;
@@ -122,6 +135,8 @@ public class PlayerStates : MonoBehaviour
                 {
                     animator.SetTrigger("changeToChicken");
                 }
+                playerCollider.center = new Vector3(0.03322887f,0.02542782f, 0f );
+                playerCollider.size = new Vector3(1.066458f,0.9028816f, 0.2f);
                 controller.turnOnState(PLAYERSTATES.Chicken);
                 controller.setState(allStates[1]);
                 break;
@@ -130,8 +145,10 @@ public class PlayerStates : MonoBehaviour
 
                 if (animator != null)
                 {
-                    //animator.SetTrigger("changeToSheep");
+                    animator.SetTrigger("changeToSheep");
                 }
+                playerCollider.center = new Vector3(-0.0007758141f,-0.01675606f, 0f );
+                playerCollider.size = new Vector3(1.001552f,0.9812298f, 0.2f);
                 controller.turnOnState(PLAYERSTATES.Sheep);
                 controller.setState(allStates[2]);
                 break;
@@ -142,6 +159,8 @@ public class PlayerStates : MonoBehaviour
                 {
                     animator.SetTrigger("changeToCat");
                 }
+                playerCollider.center = new Vector3(-0.03850317f,-0.01675606f, 0f );
+                playerCollider.size = new Vector3(1.077006f,0.9812298f, 0.2f);
                 controller.turnOnState(PLAYERSTATES.Cat);
                 controller.setState(allStates[3]);
                 break;
@@ -149,7 +168,7 @@ public class PlayerStates : MonoBehaviour
                 break;
         }
 
-        ResizeCollider();
+        // ResizeCollider();
     }
 
     //Resizes the collider to match the object
