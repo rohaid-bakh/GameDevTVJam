@@ -70,7 +70,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""b855d8e6-3d25-407a-8bce-9e71e3663d87"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -81,7 +81,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""9891e301-c823-4725-80f2-26cf63782c48"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -92,7 +92,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""2ed1d72a-008e-4631-b810-bbc3b0a99be5"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -114,7 +114,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bfd6076e-908d-4f32-85c7-3fad52ca759e"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -248,6 +248,11 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Control2"",
+            ""bindingGroup"": ""Control2"",
+            ""devices"": []
         }
     ]
 }");
@@ -511,6 +516,15 @@ public partial class @Controller : IInputActionCollection2, IDisposable
         {
             if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
             return asset.controlSchemes[m_KeyboardSchemeIndex];
+        }
+    }
+    private int m_Control2SchemeIndex = -1;
+    public InputControlScheme Control2Scheme
+    {
+        get
+        {
+            if (m_Control2SchemeIndex == -1) m_Control2SchemeIndex = asset.FindControlSchemeIndex("Control2");
+            return asset.controlSchemes[m_Control2SchemeIndex];
         }
     }
     public interface IGeneralActions

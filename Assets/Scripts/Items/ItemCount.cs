@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemCount : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class ItemCount : MonoBehaviour
     public void Add(){
         count++;
         if(count == maxCount){ // put in Other Things
-            Debug.Log("Collected all the items");
+            SceneManager.LoadScene(2);
             // exit.enabled = true;
 
         }

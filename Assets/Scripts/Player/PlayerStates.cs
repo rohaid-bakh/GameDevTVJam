@@ -72,8 +72,8 @@ public class PlayerStates : MonoBehaviour
                 {
                     animator.SetTrigger("changeToChicken");
                 }
-                playerCollider.center = new Vector3(0.03322887f,0.02542782f, 0f );
-                playerCollider.size = new Vector3(1.066458f,0.9028816f, 0.2f);
+                playerCollider.center = new Vector3(-0.0007758141f, -0.05283609f, -2.907017e-18f);
+                playerCollider.size = new Vector3(1.001552f, 0.9546511f, 0.2f );
                 controller.turnOnState(PLAYERSTATES.Chicken);
                 controller.setState(allStates[1]);
                 break;
@@ -135,8 +135,8 @@ public class PlayerStates : MonoBehaviour
                 {
                     animator.SetTrigger("changeToChicken");
                 }
-                playerCollider.center = new Vector3(0.03322887f,0.02542782f, 0f );
-                playerCollider.size = new Vector3(1.066458f,0.9028816f, 0.2f);
+                playerCollider.center = new Vector3(-0.0007758141f, -0.05283609f, -2.907017e-18f);
+                playerCollider.size = new Vector3(1.001552f, 0.9546511f, 0.2f );
                 controller.turnOnState(PLAYERSTATES.Chicken);
                 controller.setState(allStates[1]);
                 break;
