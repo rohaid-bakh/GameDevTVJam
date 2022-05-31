@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
         myRigidbody.velocity = new Vector3(moveSpeed, 0f, 0f);
     }
 
-    void OnTriggerExit(Collider other)
+    void OnCollisionEnter(Collision other)
     {
         moveSpeed = -moveSpeed;
         FlipEnemy();

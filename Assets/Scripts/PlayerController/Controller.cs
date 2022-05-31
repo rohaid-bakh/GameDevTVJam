@@ -44,6 +44,15 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Door"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f33fa63-6430-4c3c-8651-e3d1ef755061"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -61,18 +70,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""b855d8e6-3d25-407a-8bce-9e71e3663d87"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""c8fcfa9c-36c6-49cc-ac52-1c75189e94fb"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -83,7 +81,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""9891e301-c823-4725-80f2-26cf63782c48"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -94,7 +92,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""2ed1d72a-008e-4631-b810-bbc3b0a99be5"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -110,6 +108,17 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfd6076e-908d-4f32-85c7-3fad52ca759e"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Door"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -239,6 +248,11 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Control2"",
+            ""bindingGroup"": ""Control2"",
+            ""devices"": []
         }
     ]
 }");
@@ -246,6 +260,7 @@ public partial class @Controller : IInputActionCollection2, IDisposable
         m_General = asset.FindActionMap("General", throwIfNotFound: true);
         m_General_Movement = m_General.FindAction("Movement", throwIfNotFound: true);
         m_General_Jump = m_General.FindAction("Jump", throwIfNotFound: true);
+        m_General_Door = m_General.FindAction("Door", throwIfNotFound: true);
         // Vampire
         m_Vampire = asset.FindActionMap("Vampire", throwIfNotFound: true);
         m_Vampire_Attack = m_Vampire.FindAction("Attack", throwIfNotFound: true);
@@ -319,12 +334,14 @@ public partial class @Controller : IInputActionCollection2, IDisposable
     private IGeneralActions m_GeneralActionsCallbackInterface;
     private readonly InputAction m_General_Movement;
     private readonly InputAction m_General_Jump;
+    private readonly InputAction m_General_Door;
     public struct GeneralActions
     {
         private @Controller m_Wrapper;
         public GeneralActions(@Controller wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_General_Movement;
         public InputAction @Jump => m_Wrapper.m_General_Jump;
+        public InputAction @Door => m_Wrapper.m_General_Door;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -340,6 +357,9 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnJump;
+                @Door.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDoor;
+                @Door.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDoor;
+                @Door.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnDoor;
             }
             m_Wrapper.m_GeneralActionsCallbackInterface = instance;
             if (instance != null)
@@ -350,6 +370,9 @@ public partial class @Controller : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Door.started += instance.OnDoor;
+                @Door.performed += instance.OnDoor;
+                @Door.canceled += instance.OnDoor;
             }
         }
     }
@@ -495,10 +518,20 @@ public partial class @Controller : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
+    private int m_Control2SchemeIndex = -1;
+    public InputControlScheme Control2Scheme
+    {
+        get
+        {
+            if (m_Control2SchemeIndex == -1) m_Control2SchemeIndex = asset.FindControlSchemeIndex("Control2");
+            return asset.controlSchemes[m_Control2SchemeIndex];
+        }
+    }
     public interface IGeneralActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnDoor(InputAction.CallbackContext context);
     }
     public interface IVampireActions
     {

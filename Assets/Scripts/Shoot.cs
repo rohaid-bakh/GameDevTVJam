@@ -24,11 +24,13 @@ public class Shoot : MonoBehaviour
     private PlayerHealth player;
     private EnemyController enemyController;
     private Transform playerTransform;
+    private Animator animator;
 
     void Awake()
     {
         playerTransform = FindObjectOfType<PlayerController>().transform;
         enemyController = GetComponent<EnemyController>();
+        animator = GetComponentInChildren<Animator>();    
 
         if (isPlayer)
         {
@@ -40,16 +42,20 @@ public class Shoot : MonoBehaviour
     {
         shootTimer += Time.deltaTime;
 
-        // if (Input.GetKeyDown(KeyCode.LeftControl) && isPlayer) Removed since the proper input is put in
-        // {
-        //     ShootProjectile();
-        // }
-
         if (isPlayer == false)
         {
-            float dist = Vector3.Distance(playerTransform.transform.position, transform.position);
+            // float dist = Vector3.Distance(playerTransform.transform.position, transform.position);
+            //
+            // if (dist <= detectRadius)
+            // {
+            //     PlayerInRange = true;
+            // }
+            // else
+            // {
+            //     PlayerInRange = false;
+            // }
 
-            if (dist <= detectRadius)
+            if (CanSeePlayer(detectRadius))
             {
                 PlayerInRange = true;
             }
@@ -57,7 +63,7 @@ public class Shoot : MonoBehaviour
             {
                 PlayerInRange = false;
             }
-
+            
             AttackPlayerInRange();
         }
     }
@@ -82,6 +88,33 @@ public class Shoot : MonoBehaviour
         ShootProjectile();
     }
 
+    bool CanSeePlayer(float distance)
+    {
+        bool canSeePlayer = false;
+        Vector3 endPos = projectileSpawnPoint.position + transform.right * distance;
+        RaycastHit hit;
+        
+        if (Physics.Raycast(projectileSpawnPoint.position, transform.right, out hit, distance))
+        {
+            if (hit.collider.gameObject.CompareTag("Player"))
+            {
+                canSeePlayer = true;
+            }
+            else
+            {
+                canSeePlayer = false;
+            }
+            
+            Debug.DrawLine(projectileSpawnPoint.position, hit.point, Color.yellow);
+        }
+        else
+        {
+            Debug.DrawLine(projectileSpawnPoint.position, endPos, Color.blue);
+        }
+
+        return canSeePlayer;
+    }
+    
     public void ShootProjectile()
     {
         if (isPlayer && player.IsAlive == false)
@@ -95,16 +128,21 @@ public class Shoot : MonoBehaviour
 
             GameObject go = Instantiate(projectilePrefab, projectileSpawnPoint.position, transform.rotation);
             go.GetComponent<Projectile>().projectileOwner = transform;
+
+            if (animator != null)
+            {
+                animator.SetTrigger("attack");
+            }
         }
     }
 
     //Uncomment to test radius 
-    void OnDrawGizmos()
-    {
-        if (isPlayer == false)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, detectRadius);
-        }
-    }
+    // void OnDrawGizmos()
+    // {
+    //     if (isPlayer == false)
+    //     {
+    //         Gizmos.color = Color.yellow;
+    //         Gizmos.DrawWireSphere(transform.position, detectRadius);
+    //     }
+    // }
 }

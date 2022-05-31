@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Vampire
   m_EditorClassIdentifier: 
   state: 0
-  speed: 3
+  speed: 8.49
   linearDrag: 10
-  jumpSpeed: 4
+  jumpSpeed: 10.49
   gravity: 1
-  fallMultiplier: 3
+  fallMultiplier: 2.12
